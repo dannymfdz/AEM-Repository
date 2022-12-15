@@ -1,0 +1,15 @@
+<div data-sly-use.modelo="com.adobe.aem.guides.wknd.core.models.ArticuloApi" 
+    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+    data-sly-test.hasContent="${!modelo.empty}"
+    data-cmp-is="modelo"
+    class="cmp-modelo"> 
+
+    <p><h2 data-cmp-articulo-api-titulo="titulo">${modelo.titulo}</h2></p>
+    
+    <p data-cmp-articulo-api-texto="texto">${modelo.texto}</p>
+
+    <p><img src="" data-cmp-articulo-api-img="img" class="cmp-modelo__imagen"></p>
+
+</div>
+
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>

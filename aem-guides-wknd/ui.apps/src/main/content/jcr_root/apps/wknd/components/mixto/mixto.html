@@ -1,0 +1,26 @@
+
+<div data-sly-use.mixto="com.adobe.aem.guides.wknd.core.models.Mixto"
+    data-cmp-is="mixto"
+    class="cmp-mixto">
+
+    <div class="cmp-mixto-titulo">
+        <h2 class="titulo">${mixto.titulo}</h2> <!-- Titulo principal -->
+    </div>
+    
+    <div class="cmp-mixto-texto">
+        <p class="texto">${mixto.texto}</p> <!-- Texto de descripción -->
+    </div>
+    
+    <div class="cmp-mixto-botones">
+        <a class="cmp-mixto-botones-btn" href='${mixto.linkImp}' target="_blank">Implementación</a>
+        <a class="cmp-mixto-botones-btn" href='${mixto.linkVen}' target="_blank">Ventajas</a>
+    </div>
+    
+    <div>
+        <div class="cmp-mixto__imagen"
+            data-sly-resource="${ '.' @ resourceType = 'core/wcm/components/image/v2/image' }">
+        </div>
+        <p>${mixto.descImagen}</p>
+    </div>
+    
+</div>

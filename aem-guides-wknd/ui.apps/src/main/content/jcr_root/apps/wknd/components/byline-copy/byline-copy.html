@@ -1,0 +1,10 @@
+
+<div data-sly-use.bylineCopy="com.adobe.aem.guides.wknd.core.models.BylineCopy"
+    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+    class="cmp-byline-copy">
+    <h2 class="cmp-byline-copy__escuela">${bylineCopy.escuela}</h2>
+    <p class="cmp-byline-copy__hobbies">${bylineCopy.hobbies @ join=', '}</p>
+    <p class="cmp-byline-copy__pageName">El Nombre de la Página es: ${bylineCopy.pageName}</p>
+</div>
+
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>

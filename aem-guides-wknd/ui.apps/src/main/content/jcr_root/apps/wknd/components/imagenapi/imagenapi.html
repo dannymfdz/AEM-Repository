@@ -1,0 +1,15 @@
+<div class="cmp-imagenapi" data-cmp-is="imagenapi" data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Apimagenmodelo">
+    
+    <h1 class="cmp-imagenapi__title"> ${model.title} </h1>
+    
+    <div class="cmp-imagenapi__item" data-sly-test="${model.text}">
+        <pre class="cmp-imagenapi__item-output" data-cmp-hook-imagenapi="property">${model.text}</pre>
+    </div>
+    
+    <p><input type="text" data-cmp-hook-imagenapi-input="input" class="cmp-imagenapi__input"></p>
+
+    <p><button data-cmp-hook-imagenapi-boton="boton" class="cmp-imagenapi__boton">${model.boton}</button></p>
+    
+    <p><img src="" data-cmp-hook-imagenapi-imagen="imagen"></p>
+    
+</div>
