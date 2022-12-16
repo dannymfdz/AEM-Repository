@@ -1,13 +1,16 @@
 package com.adobe.aem.guides.wknd.core.models.impl;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import com.adobe.aem.guides.wknd.core.models.BylineCopy;
+import com.adobe.aem.guides.wknd.core.services.PaginasService;
 import com.day.cq.wcm.api.Page;
 
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -34,6 +37,9 @@ public class BylineImplCopy  implements BylineCopy {
 
     @ScriptVariable
     private Page currentPage;
+
+    @OSGiService
+    private PaginasService paginasService;
     
     @Override
     public String getEscuela() {
@@ -56,6 +62,12 @@ public class BylineImplCopy  implements BylineCopy {
     public String getPageName() {
 
         return currentPage.getTitle();
+    }
+
+    @Override
+    public Iterator<Page> getPages() {
+
+        return paginasService.getPages();
     }
 
 }

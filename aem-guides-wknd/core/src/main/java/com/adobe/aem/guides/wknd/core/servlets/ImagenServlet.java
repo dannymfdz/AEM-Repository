@@ -6,6 +6,9 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+import com.adobe.aem.guides.wknd.core.services.OSGiConfigModule;
 import com.google.gson.JsonObject;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,14 +28,19 @@ public class ImagenServlet extends SlingSafeMethodsServlet {
     
     private static final long serialVersionUID = 1L;
 
+    @Reference
+    private OSGiConfigModule osgiConfig;
+
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
         
         try {
             
             String query = request.getParameter("query");
-
-            URL url = new URL("https://api.unsplash.com/search/photos?query="+query+"&per_page=1&client_id=STR2ibg138WCGlFpE67dkqsJko4UQ3vcCRtumoDYH-4");
+            
+            //STR2ibg138WCGlFpE67dkqsJko4UQ3vcCRtumoDYH-4
+            URL url = new URL(osgiConfig.getImagenesEndpoint()+"search/photos?query="+query+"&per_page=1&client_id="+osgiConfig.getIdEndpoint());
+            
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
