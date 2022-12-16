@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.adobe.aem.guides.wknd.core.models.BylineCopy;
+import com.adobe.aem.guides.wknd.core.services.PagService;
 import com.adobe.aem.guides.wknd.core.services.PaginasService;
 import com.day.cq.wcm.api.Page;
 
@@ -39,6 +40,9 @@ public class BylineImplCopy  implements BylineCopy {
     private Page currentPage;
 
     @OSGiService
+    private PagService pagService;
+
+    @OSGiService
     private PaginasService paginasService;
     
     @Override
@@ -61,7 +65,7 @@ public class BylineImplCopy  implements BylineCopy {
     @Override
     public String getPageName() {
 
-        return currentPage.getTitle();
+        return pagService.getPag(currentPage);
     }
 
     @Override

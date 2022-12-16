@@ -9,13 +9,9 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import com.adobe.aem.guides.wknd.core.services.OSGiConfigModule;
+import com.adobe.aem.guides.wknd.core.services.RestApiService;
 import com.google.gson.JsonObject;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 
 @Component(service = { Servlet.class })
 @SlingServletPaths(
@@ -29,6 +25,9 @@ public class PokemonServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUID = 1L;
 
     @Reference
+    private RestApiService restApiService;
+
+    @Reference
     private OSGiConfigModule osgiConfig;
 
     @Override
@@ -37,33 +36,13 @@ public class PokemonServlet extends SlingSafeMethodsServlet {
         try {
 
             String id = request.getParameter("id");
-            //URL url = new URL("https://pokeapi.co/api/v2/pokemon/" + id);
-            URL url = new URL(osgiConfig.getPokeapiEndpoint() + "pokemon/" + id); // ctrl+k+c / +u
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-    
-            if (conn.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + conn.getResponseCode());
-            }
-    
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                (conn.getInputStream())));
-    
-            String output;
-            StringBuilder pokemon = new StringBuilder();
-
-            while ((output = br.readLine()) != null) {
-                pokemon.append(output);
-            }
+            String url = osgiConfig.getPokeapiEndpoint() + "pokemon/" + id;
+            String pokemon = restApiService.getJson(url);
 
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("pokemon", pokemon.toString());
 
             response.getWriter().write(jsonObject.get("pokemon").getAsString());
-    
-            conn.disconnect();
     
           } catch (IOException e) {
     
