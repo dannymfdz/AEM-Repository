@@ -1,0 +1,17 @@
+<div data-sly-use.modelo="com.adobe.aem.guides.wknd.core.models.ArtistasModel"
+    class="cmp-artistas-musicales">
+    
+    <h1>${modelo.titulo}</h1>
+
+    <div data-sly-list.artistas="${modelo.artistasList}">
+
+        <h4>${artistas.nombre}</h4>
+        <span> Fecha: ${'dd/MM/yyyy' @ format=artistas.fechaNacimiento}</span>
+
+        <ul data-sly-list.discografia="${artistas.discografia}">
+            <li class="accordion_text">${discografia.album} - ${discografia.anio}</li>
+        </ul>
+        
+    </div>
+
+</div>
