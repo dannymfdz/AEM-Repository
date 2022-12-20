@@ -38,6 +38,9 @@
     }
     
     function onDocumentReady() {
+
+        console.log("onDocumentReady");
+
         var elements = document.querySelectorAll(selectors.self);
         for (var i = 0; i < elements.length; i++) {
             new Pokemon({ element: elements[i] });
