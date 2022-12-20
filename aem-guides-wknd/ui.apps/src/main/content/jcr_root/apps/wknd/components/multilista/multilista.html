@@ -1,0 +1,14 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.MultilistaModel"
+    class="cmp-multilista">
+    
+    <div data-sly-list.titulosList="${model.lista}">
+        
+        <h2>${titulosList.titulo}</h2>
+
+        <ul data-sly-list.bullets="${titulosList.bullets}">
+            <li>${bullets.bullet}</li>
+        </ul>
+
+    </div>
+
+</div>

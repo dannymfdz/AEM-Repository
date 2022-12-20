@@ -1,15 +1,49 @@
-
 <div data-sly-use.bylineCopy="com.adobe.aem.guides.wknd.core.models.BylineCopy"
-    data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
-    class="cmp-byline-copy">
-    <h2 class="cmp-byline-copy__escuela">${bylineCopy.escuela}</h2>
-    <p class="cmp-byline-copy__hobbies">${bylineCopy.hobbies @ join=', '}</p>
-    <p class="cmp-byline-copy__pageName">El Nombre de la Página es: ${bylineCopy.pageName}</p>
+    class="contenedor-principal">
 
-    <div data-sly-list.item="${bylineCopy.pages}" >
-        <p> Pagina: ${item.title}</p>
+    <div class="ctn-universidad">
+        <h1 class="titulo">${bylineCopy.escuela}</h1>
+    </div>
+    
+    <div class="ctn-hobbies">
+        <h2 class="subtitulo">Mis Hobbies son:</h2>
+        <p class="elemento">${bylineCopy.hobbies}</p>
     </div>
 
-</div>
+    <div class="ctn-paginas">
+        <h2 class="subtitulo">Página Actual</h2>
+        <p class="elemento">${bylineCopy.pageName}</p>
+    </div>
+    
+    <div class="ctn-mapa">
+        <h2 class="subtitulo">Páginas del Sitio</h2>
+        <div data-sly-list.item="${bylineCopy.pages}" >
+            <ul>
+                <li class="elemento">${item.title}</li>
+            </ul>
+        </div>
+    </div>
 
-<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
+    <div class="ctn-videojuegos">
+        <h2 class="subtitulo">Videojuegos</h2>
+        <div data-sly-list.item="${bylineCopy.videojuegos}">
+            <ul>
+                <li>
+                    <h3 class="titulo-videojuego">
+                        ${item.videojuegoNombre}
+                    </h3>
+                </li>
+                <ul>
+                    <li>
+                        <b> Fecha Publicación: </b> ${'dd/MM/yyyy' @ format=item.fechaPublicacion}
+                    </li>
+                    <div data-sly-list.edicion="${item.ediciones}">
+                        <li> <b> Consola: </b> ${edicion.consola}</li>
+                        <li> <b> Edicion: </b> ${edicion.nombreEdicion}</li>
+                    </div>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    
+</div>

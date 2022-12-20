@@ -11,11 +11,7 @@ import org.osgi.service.component.annotations.Reference;
 import com.adobe.aem.guides.wknd.core.services.OSGiConfigModule;
 import com.adobe.aem.guides.wknd.core.services.RestApiService;
 import com.google.gson.JsonObject;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 @Component(service = { Servlet.class })

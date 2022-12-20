@@ -27,6 +27,59 @@
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             name="./hobbies"/>
                     </hobbies>
+
+                    <videojuegos
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="{Boolean}true"
+                        fieldDescription="Agrega Videojuegos"
+                        fieldLabel="Videojuegos">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./videojuegos">
+                            <items jcr:primaryType="nt:unstructured">
+                                <nombre
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Videojuego"
+                                    name="./nombre"
+                                    required="{Boolean}true"/>
+                                <fechapublicacion
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                    fieldLabel="Fecha de Puublicación Inicial"
+                                    name="./fechapublicacion"
+                                    required="{Boolean}true"/>
+                                <ediciones
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldDescription="Agrega Videojuegos"
+                                    fieldLabel="Ediciones">
+                                    <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        name="./videojuegoedicion">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <consola
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Consola"
+                                                name="./consola"
+                                                required="{Boolean}true"/>
+                                            <nombreedicion
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Nombre Edición"
+                                                name="./nombreedicion"
+                                                required="{Boolean}true"/>
+                                        </items>
+                                    </field>
+                                </ediciones>
+                            </items>
+                        </field>
+                    </videojuegos>
                 </items>
             </column>
         </items>
