@@ -27,7 +27,6 @@
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             name="./hobbies"/>
                     </hobbies>
-
                     <videojuegos
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"

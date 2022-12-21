@@ -2,68 +2,113 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Artistas-Musicales"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="style-guide.html#compare-rows-services"
+    mode="edit">
     <content
         jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/container">
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
         <items jcr:primaryType="nt:unstructured">
-            <column
+            <tab1
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/container">
+                jcr:title="Text"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
                 <items jcr:primaryType="nt:unstructured">
-                    <titulo
+                    <column
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                        fieldLabel="Titulo Canción"
-                        name="./titulo"/>
-                    <artistas
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                        composite="{Boolean}true"
-                        fieldLabel="Artistas ">
-                        <field
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                            name="./artistas">
-                            <items jcr:primaryType="nt:unstructured">
-                                <nombre
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <titulo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Titulo Canción"
+                                name="./titulo"/>
+                            <artistas
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Artistas ">
+                                <field
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="Nombre de Artista"
-                                    name="./nombre"/>
-                                <fechanacimiento
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                    fieldLabel="Fecha de Nacimiento"
-                                    name="./fechanacimiento"/>
-                                <discografia
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                    composite="{Boolean}true"
-                                    fieldLabel="Discografía">
-                                    <field
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                                        name="./discografia">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <album
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./artistas">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <nombre
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Nombre de Artista"
+                                            name="./nombre"/>
+                                        <fechanacimiento
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                            fieldLabel="Fecha de Nacimiento"
+                                            name="./fechanacimiento"/>
+                                        <discografia
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true"
+                                            fieldLabel="Discografía">
+                                            <field
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldLabel="Albúm"
-                                                name="./album"/>
-                                            <anio
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                                                fieldLabel="Año de Publicación"
-                                                name="./anio"/>
-                                        </items>
-                                    </field>
-                                </discografia>
-                            </items>
-                        </field>
-                    </artistas>
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./discografia">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <album
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Albúm"
+                                                        name="./album"/>
+                                                    <anio
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                        fieldLabel="Año de Publicación"
+                                                        name="./anio"/>
+                                                </items>
+                                            </field>
+                                        </discografia>
+                                    </items>
+                                </field>
+                            </artistas>
+                        </items>
+                    </column>
                 </items>
-            </column>
+            </tab1>
+            <tab2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Colores"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <colores
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Colores"
+                                name="./color">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/apps/wknd/components/datasource/listas/datasourceColors.html"
+                                    data_path="colors"
+                                    fieldLabel="Seleccione un Color"/>
+                            </colores>
+                        </items>
+                    </column>
+                </items>
+            </tab2>
         </items>
     </content>
 </jcr:root>
