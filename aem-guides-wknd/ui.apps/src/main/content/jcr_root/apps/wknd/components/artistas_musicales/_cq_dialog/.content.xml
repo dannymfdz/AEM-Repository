@@ -101,10 +101,21 @@
                                 name="./color">
                                 <datasource
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="/apps/wknd/components/datasource/listas/datasourceColors.html"
+                                    sling:resourceType="/apps/wknd/components/datasource/listas/datasource.html"
                                     data_path="colors"
                                     fieldLabel="Seleccione un Color"/>
                             </colores>
+                            <meses
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Meses"
+                                name="./meses">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/apps/wknd/components/datasource/listas/datasource.html"
+                                    data_path="meses"
+                                    fieldLabel="Seleccione un Mes"/>
+                            </meses>
                         </items>
                     </column>
                 </items>

@@ -18,7 +18,7 @@ import com.adobe.granite.ui.components.ds.DataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 
-public class DatasourceColors extends WCMUsePojo{
+public class Datasource extends WCMUsePojo{
 
     @Override
     public void activate() throws Exception {
@@ -27,13 +27,9 @@ public class DatasourceColors extends WCMUsePojo{
     
         String dataPath = ResourceUtil.getValueMap(getResource().getChild("datasource")).get("data_path", String.class);
 
-        System.out.println("Data path: " + dataPath);
-
         Resource resource = resolver.getResource("/apps/wknd/components/common/data/" + dataPath);
 
-        System.out.println("Resource" + resource);
-
-        Map<String, String> data = new LinkedHashMap<String, String>(); //Mantiene el orden
+        Map<String, String> data = new LinkedHashMap<>();
 
         Node currentNode = resource.adaptTo(Node.class);
 
@@ -43,7 +39,10 @@ public class DatasourceColors extends WCMUsePojo{
             
             Node node = nodeIterator.nextNode();
 
-            data.put(node.getProperty("value").getValue().getString(), node.getProperty("name").getValue().getString());
+            String value = node.getProperty("value").getValue().getString();
+            String name = node.getProperty("name").getValue().getString();
+
+            data.put(value, name);
         }
 
         /* Todo esto vas por tu servicio REST */
@@ -67,6 +66,5 @@ public class DatasourceColors extends WCMUsePojo{
 
         getRequest().setAttribute(DataSource.class.getName(), ds);
         
-
     }
 }
