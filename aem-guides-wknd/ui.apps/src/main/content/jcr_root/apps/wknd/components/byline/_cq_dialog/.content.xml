@@ -44,6 +44,7 @@
                                             <occupations
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                emptyText="Empty Text"
                                                 fieldDescription="A list of the contributor's occupations."
                                                 fieldLabel="Occupations"
                                                 required="{Boolean}false">

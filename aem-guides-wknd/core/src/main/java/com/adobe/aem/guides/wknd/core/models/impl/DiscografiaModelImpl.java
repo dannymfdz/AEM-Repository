@@ -21,6 +21,9 @@ public class DiscografiaModelImpl implements DiscografiaModel {
     @Inject
     private Integer anio;
 
+    @Inject
+    private String imagenalbum;
+
     @Override
     public String getAlbum() {
 
@@ -31,6 +34,12 @@ public class DiscografiaModelImpl implements DiscografiaModel {
     public Integer getAnio() {
 
         return anio;
+    }
+
+    @Override
+    public String getImagenAlbum() {
+
+        return imagenalbum;
     }
     
 }

@@ -4,13 +4,26 @@
     <h1>${modelo.titulo}</h1>
 
     <div data-sly-list.artistas="${modelo.artistasList}">
+        
+        <div class="artista">
 
-        <h4>${artistas.nombre}</h4>
-        <span> Fecha: ${'dd/MM/yyyy' @ format=artistas.fechaNacimiento}</span>
+            <h2>${artistas.nombre}</h2>
+            <div class="datos-artista">
+                <div class="metadatos-artista">
+                    <p class="artista-datos"> <span class="titulo-datos-artista"> Nacimiento: </span> ${'dd/MM/yyyy' @ format=artistas.fechaNacimiento}</p>
+                    <p class="artista-datos"> ${artistas.descripcion} </p>
+                </div>
+                <img src='${artistas.imagenArtista}'>
+            </div>
 
-        <ul data-sly-list.discografia="${artistas.discografia}">
-            <li class="accordion_text">${discografia.album} - ${discografia.anio}</li>
-        </ul>
+        </div>
+        
+        <div class="album">
+            <ul data-sly-list.discografia="${artistas.discografia}">
+                <li class="album-datos">${discografia.album} - ${discografia.anio}</li>
+                <img src='${discografia.imagenAlbum}'>
+            </ul>
+        </div>
         
     </div>
 

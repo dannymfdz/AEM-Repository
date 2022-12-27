@@ -26,6 +26,12 @@ public class ArtistasListModelImpl implements ArtistasListModel{
     private Date fechanacimiento;
 
     @Inject
+    private String imagenartista;
+
+    @Inject
+    private String descripcion;
+
+    @Inject
     private List<DiscografiaModel> discografia;
 
     @Override
@@ -40,7 +46,19 @@ public class ArtistasListModelImpl implements ArtistasListModel{
     }
 
     @Override
+    public String getImagenArtista() {
+        return imagenartista;
+    }
+
+    @Override
+    public String getDescripcion() {
+    
+        return descripcion;
+    }
+
+    @Override
     public List<DiscografiaModel> getDiscografia() {
         return discografia;
     }
+
 }

@@ -1,0 +1,53 @@
+html{
+
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+
+    box-sizing: inherit;
+}
+
+.cmp-artistas-musicales {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    .artista {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .artista h2 {
+
+        text-align: center;
+        font-weight: bold;
+        font-size: 35px;
+        margin: 30px auto;
+    }
+
+    
+
+    .artista img{
+
+        width: 200px;
+        border-radius: 50%;
+        
+    }
+
+    .datos-artista {
+
+        display: grid;
+
+        grid-template-columns: 70% 30%;
+        
+    }
+
+    .album img{
+
+        width: 20%;
+        border-radius: 15px;
+        column-gap: 50px;
+    }
+}

@@ -4,4 +4,5 @@ public interface DiscografiaModel {
     
     String getAlbum();
     Integer getAnio();
+    String getImagenAlbum();
 }

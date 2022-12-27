@@ -7,6 +7,8 @@ public interface ArtistasListModel {
     
     String getNombre();
     Date getFechaNacimiento();
+    String getImagenArtista();
+    String getDescripcion();
     List<DiscografiaModel> getDiscografia();
 
 }
