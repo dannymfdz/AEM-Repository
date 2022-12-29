@@ -1,0 +1,14 @@
+<div data-sly-use.modelo='com.adobe.aem.guides.wknd.core.models.ImagenesClientesModel'
+        data-cmp-is="imagenes-clientes"
+        id="${modelo.id}"
+        class="cmp-clientes-imagenes-img-container">
+
+        <h1>${modelo.id}</h1>
+
+        
+        <ul data-sly-list.imagen="${modelo.multilista}">
+            <li>
+                <img src="${imagen.imagenPath}" alt="imagen">
+            </li>
+        </ul>
+</div>

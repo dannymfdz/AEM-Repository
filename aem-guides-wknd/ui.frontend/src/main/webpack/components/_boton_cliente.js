@@ -2,13 +2,12 @@
     "use strict";
 
     var selectors = {
-        self:      '[data-cmp-is="apimagen"]',
-        boton:  '[data-cmp-hook-apimagen-boton="boton"]',
-        imagen:  '[data-cmp-hook-apimagen-imagen="imagen"]',
-        input:  '[data-cmp-hook-apimagen-input="input"]'
+
+        self:      '[data-cmp-is="clientes-individuales"]',
+        btn:  '[data-cmp-clientes-individuales-btn="btn-ci"]'
     };
 
-    function Apimagen(config) {
+    function ClientesIndividuales(config) {
 
         function init(config) {
 
@@ -20,25 +19,41 @@
             init(config);
         }
 
-        let boton = config.element.querySelectorAll(selectors.boton);
-        let imagen = config.element.querySelectorAll(selectors.imagen);
-        let input = config.element.querySelectorAll(selectors.input);
+        /*----------------------------------------------------------------*/
 
-        
-        boton[0].onclick = async() => {
-            let query = input[0].value;
-            const response = await fetch('/bin/wknd/getimagen?query=' + query);
-            const myJson = await response.json();
-            console.log(myJson);
-            imagen[0].src = myJson.results[0].urls.small;
-        };
+        const secciones = document.querySelectorAll('.cmp-clientes-imagenes-img-container');
+        secciones.forEach(seccion => {
+
+            seccion.setAttribute('hidden', 'true');
+        })
+
+        secciones[0].removeAttribute('hidden');
+
+        let btn = config.element.querySelector(selectors.btn);
+
+        btn.addEventListener('click', function(){
+
+            secciones.forEach(seccion => {
+
+                if(seccion.id === btn.dataset.section){
+
+                    seccion.removeAttribute('hidden');
+
+                }else{
+
+                    seccion.setAttribute('hidden',true);
+                }
+            })
+        });
+
     }
 
+    
     
     function onDocumentReady() {
         var elements = document.querySelectorAll(selectors.self);
         for (var i = 0; i < elements.length; i++) {
-            new Apimagen({ element: elements[i] });
+            new ClientesIndividuales({ element: elements[i] });
         }
 
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -52,7 +67,7 @@
                         if (addedNode.querySelectorAll) {
                             var elementsArray = [].slice.call(addedNode.querySelectorAll(selectors.self));
                             elementsArray.forEach(function(element) {
-                                new Apimagen({ element: element });
+                                new ClientesIndividuales({ element: element });
                             });
                         }
                     });
