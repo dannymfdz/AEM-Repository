@@ -1,5 +1,6 @@
 <div data-sly-use.modelo='com.adobe.aem.guides.wknd.core.models.SeccionClientesModel'
-        data-cmp-is="imagenes-clientes">
+        data-cmp-is="imagenes-clientes"
+        class="cmp-clientes-container">
 
         <h1>${modelo.titulo}</h1>
 
@@ -9,11 +10,17 @@
 
             <h1> <span class="subtitulo"> Categoría </span> ${seccion.id}</h1>
 
-            <div data-sly-list.imagen="${seccion.multilista}">
+            <div class="imagenes">
+
+                <div data-sly-list.imagen="${seccion.multilista}"
+                    class="imagen-list">
                 
-                <img src="${imagen.imagenPath}" alt="imagen">
-                
+                    <img src="${imagen.imagenPath}" alt="imagen">
+                    
+                </div>
+
             </div>
+            
 
         </div>
 </div>

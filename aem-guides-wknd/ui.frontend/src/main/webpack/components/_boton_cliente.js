@@ -21,13 +21,14 @@
 
         /*----------------------------------------------------------------*/
 
-       /*  const secciones = document.querySelectorAll('.cmp-clientes-imagenes-img-container');
+        const secciones = document.querySelectorAll('.cmp-clientes-container');
         secciones.forEach(seccion => {
 
-            seccion.setAttribute('hidden', 'true');
+            console.log(seccion);
+            //seccion.setAttribute('hidden', 'true');
         })
 
-        secciones[0].removeAttribute('hidden');
+        /* secciones[0].removeAttribute('hidden');
 
         let btn = config.element.querySelector(selectors.btn);
 
