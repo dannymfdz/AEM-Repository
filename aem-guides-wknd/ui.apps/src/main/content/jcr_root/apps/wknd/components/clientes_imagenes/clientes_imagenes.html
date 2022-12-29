@@ -1,14 +1,19 @@
-<div data-sly-use.modelo='com.adobe.aem.guides.wknd.core.models.ImagenesClientesModel'
-        data-cmp-is="imagenes-clientes"
-        id="${modelo.id}"
-        class="cmp-clientes-imagenes-img-container">
+<div data-sly-use.modelo='com.adobe.aem.guides.wknd.core.models.SeccionClientesModel'
+        data-cmp-is="imagenes-clientes">
 
-        <h1>${modelo.id}</h1>
+        <h1>${modelo.titulo}</h1>
 
-        
-        <ul data-sly-list.imagen="${modelo.multilista}">
-            <li>
+        <div data-sly-list.seccion="${modelo.seccion}"
+            class="cmp-clientes-imagenes-img-container"
+            id="${seccion.id}">
+
+            <h1> <span class="subtitulo"> Categoría </span> ${seccion.id}</h1>
+
+            <div data-sly-list.imagen="${seccion.multilista}">
+                
                 <img src="${imagen.imagenPath}" alt="imagen">
-            </li>
-        </ul>
+                
+            </div>
+
+        </div>
 </div>

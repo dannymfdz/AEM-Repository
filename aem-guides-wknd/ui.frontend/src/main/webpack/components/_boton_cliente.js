@@ -21,7 +21,7 @@
 
         /*----------------------------------------------------------------*/
 
-        const secciones = document.querySelectorAll('.cmp-clientes-imagenes-img-container');
+       /*  const secciones = document.querySelectorAll('.cmp-clientes-imagenes-img-container');
         secciones.forEach(seccion => {
 
             seccion.setAttribute('hidden', 'true');
@@ -44,7 +44,7 @@
                     seccion.setAttribute('hidden',true);
                 }
             })
-        });
+        }); */
 
     }
 
