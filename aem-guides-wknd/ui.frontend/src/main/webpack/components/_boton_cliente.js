@@ -24,11 +24,10 @@
         const secciones = document.querySelectorAll('.cmp-clientes-container');
         secciones.forEach(seccion => {
 
-            console.log(seccion);
-            //seccion.setAttribute('hidden', 'true');
+            seccion.setAttribute('hidden', 'true');
         })
 
-        /* secciones[0].removeAttribute('hidden');
+        secciones[0].removeAttribute('hidden');
 
         let btn = config.element.querySelector(selectors.btn);
 
@@ -45,7 +44,7 @@
                     seccion.setAttribute('hidden',true);
                 }
             })
-        }); */
+        });
 
     }
 
